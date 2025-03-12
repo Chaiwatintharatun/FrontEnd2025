@@ -107,7 +107,7 @@ app.get('/product/delete/:id', async (req, res) => {
 app.get('/User', async (req, res) => {
     try {
         const response = await axios.get(base_url + '/User');
-        res.render("User/bookss", { User: response.data });
+        res.render("user/bookss", { User: response.data });
     } catch (err) {
         console.error(err);
         res.status(500).send('Error');
@@ -118,7 +118,7 @@ app.get('/User', async (req, res) => {
 app.get('/User/:id', async (req, res) => {
     try {
         const response = await axios.get(base_url + '/User/' + req.params.id);
-        res.render("User/bookk", { User: response.data });
+        res.render("user/bookk", { User: response.data });
     } catch (err) {
         console.error(err);
         res.status(500).send('Error');
@@ -127,7 +127,7 @@ app.get('/User/:id', async (req, res) => {
 
 // show create desktop
 app.get('/User/create', (req, res) => {
-    res.render("User/create");
+    res.render("user/create");
 });
 
 app.post('/User/create', async (req, res) => {
@@ -146,7 +146,7 @@ app.post('/User/create', async (req, res) => {
 app.get('/User/update/:id', async (req, res) => {
     try {
         const response = await axios.get(base_url + '/User/' + req.params.id);
-        res.render('User/update', { User: response.data });
+        res.render('user/update', { User: response.data });
     } catch (err) {
         console.error(err);
         res.status(500).send('Error1');
