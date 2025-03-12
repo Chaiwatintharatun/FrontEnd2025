@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product</title>
+    <link rel="stylesheet" href="../css/style.css"/>
+</head>
+<body>
+    <h1>🎮 GAMING GEAR SHOP 🎮</h1>
+    <a href="/product">สินค้า</a>
+    <a href="/order">ออเดอร์</a>
+    <a href="/User">ชื่อผู้ใช้</a>
+    <a href="/order_detail">รายละเอียดออเดอร์</a> 
+    <table>
+        <tr>
+            <th>Product ID</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Quantity available</th>
+            <th>Other</th>
+     
+        </tr>
+        <% for(var i=0; i < product.length; i++) { %>
+            <tr>
+                <td><%= product[i].product_ID %></td>
+                <td><%= product[i].product_name %></td>
+                <td><%= product[i].price %></td>
+                <td><%= product[i].quantity_available %></td>
+                <td>
+                    <a href="/Product/<%= product[i].product_ID %>">View</a>
+                    <a href="/Product/update/<%= product[i].product_ID %>">Edit</a>
+                    <a href="/product/delete/<%= product[i].product_ID %>">Delete</a>
+                </td>
+            </tr>
+        <% } %>
+    </table>
+    <a href="/produc/create">Create New product</a>
+</body>
+</html>

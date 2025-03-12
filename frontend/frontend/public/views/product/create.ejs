@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Product</title>
+    <link rel="stylesheet" href="../css/style.css"/>
+</head>
+<body>
+    <h1>Create product</h1>
+    <form method="post" action="/produc/create">
+        <label for="product_name">product_name:</label>
+        <input type="text" id="product_name" name="product_name" required>
+        <br>
+        <label for="quantity_available"> quantity_available:</label>
+        <input type="text" id="quantity_available" name="quantity_available" required>
+        <br>
+        <label for="price"> price:</label>
+        <input type="text" id="price" name="price" required>
+        <br>
+        <input type="submit" value="Create">
+    </form>
+    <a href="/product">Back to List</a>
+</body>
+</html>

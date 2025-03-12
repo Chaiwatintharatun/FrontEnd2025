@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order_Details</title>
+    <link rel="stylesheet" href="../css/style.css"/>
+
+</head>
+<body>
+    <h1>🎮 GAMING GEAR SHOP 🎮</h1>
+    <a href="/product">สินค้า</a>
+    <a href="/order">ออเดอร์</a>
+    <a href="/User">ชื่อผู้ใช้</a>
+    <a href="/order_detail">รายละเอียดออเดอร์</a> 
+    <table>
+        <tr>
+            <!-- <th>OrderID</th> -->
+            <th>Order_dID</th>
+            <th>USERNAME</th>
+            <th>product</th>
+            <th>Other</th>
+        </tr>
+        <% for(var i=0; i < order_detail.length; i++) { %>
+            <tr>
+                <!-- <td><%= order_detail[i].Order_ID %></td> -->
+                <td><%= order_detail[i].Order_dID %></td>
+                <% for(var j=0; j < user.length; j++) { 
+                        if(order_detail[i].user_ID == user[j].user_id){
+                            %>
+                            <td><%= user[j].username %></td>
+                            <%
+                        }
+                    }
+                    %>
+                <!-- <td><%= order_detail[i].user_ID %></td> -->
+                <% for(var k=0; k < product.length; k++) { 
+                    if(order_detail[i].product_ID == product[k].product_ID){
+                        %>
+                        <td><%= product[k].product_name %></td>
+                        <%
+                    }
+                }
+                %>
+                <!-- <td><%= order_detail[i].product_ID %></td> -->
+               
+                <td>
+                    <a href="/order_detail/<%= order_detail[i].Order_dID %>">View</a>
+                    <a href="/order_detai/update/<%= order_detail[i].Order_dID %>">Edit</a>
+                    <a href="/order_detai/delete/<%= order_detail[i].Order_dID %>">Delete</a>
+                </td>
+            </tr>
+        <% } %>
+    </table>
+    <a href="order_detai/create">Create New order</a>
+</body>
+</html>

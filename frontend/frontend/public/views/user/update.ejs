@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update username</title>
+    <link rel="stylesheet" href="../../css/style.css"/>
+
+</head>
+<body>
+    <h1>update User</h1>
+    <form method="post" action="/User/update/<%= User.user_id %>">
+        <label for="username" >username:</label>
+        <input type="text" id="username" name="username" value="<%= User.username %>">
+        <br>
+        <label for="email">email:</label>
+        <input type="text" id="email" name="email" value="<%= User.email %>">
+        <br>
+        <label for="phone" >phone:</label>
+        <input type="text" id="phone" name="phone" value="<%= User.phone %>">
+        <br>
+
+        <input type="submit" value="Update">
+    </form>
+
+    <a href="/User">Back to list</a>
+</body>
+</html>

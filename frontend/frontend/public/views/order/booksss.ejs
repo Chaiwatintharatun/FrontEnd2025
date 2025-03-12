@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order</title>
+    <link rel="stylesheet" href="../css/style.css"/>
+
+</head>
+<body>
+    
+    <h1>Order</h1>
+    <a href="/product">สินค้า</a>
+    <a href="/order">ออเดอร์</a>
+    <a href="/User">ชื่อผู้ใช้</a>
+    <a href="/order_detail">รายละเอียดออเดอร์</a>
+    
+    <table>
+        <tr>
+            <th>Order_ID</th>
+            <th>Product Name</th>
+            <th>Other</th>
+        </tr>
+        <% for(var i=0; i < order.length; i++) { %>
+            <tr>
+                <td><%= order[i].Order_ID %></td>
+                <!-- <td><%= order[i].Order_dID %></td> -->
+
+                <% 
+                var name = ""
+                for(var k=0; k < product.length; k++) { 
+                    for(var j =0; j < order[i].order_details.length; j++ ){
+                        if(order[i].order_details[j].product_ID == product[k].product_ID){
+                            
+                        name += product[k].product_name+","
+                           
+                            
+                        }
+                    }
+                   
+                }
+                %>
+                <td><%= name %></td>
+                <td>
+
+                    <a href="/orde/delete/<%= order[i].Order_ID %>">Delete</a>
+                </td>
+            </tr>
+        <% } %>
+    </table>
+    <a href="/orde/create">Create New user</a>
+</body>
+</html>

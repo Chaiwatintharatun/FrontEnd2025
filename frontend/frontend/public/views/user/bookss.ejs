@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User</title>
+    <link rel="stylesheet" href="../css/style.css"/>
+
+</head>
+<body>
+    <h1>🎮 GAMING GEAR SHOP 🎮</h1>
+    <a href="/product">สินค้า</a>
+    <a href="/order">ออเดอร์</a>
+    <a href="/User">ชื่อผู้ใช้</a>
+    <a href="/order_detail">รายละเอียดออเดอร์</a> 
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>email</th>
+            <th>phone</th>
+            <th>other</th>
+
+        </tr>
+        <% for(var i=0; i < User.length; i++) { %>
+            <tr>
+                <td><%= User[i].username %></td>
+                <td><%= User[i].email %></td>
+                <td><%= User[i].phone %></td>
+                
+                
+
+                <td>
+                    <a href="/User/<%= User[i].user_id %>">View</a>
+                    <a href="/User/update/<%= User[i].user_id %>">Edit</a>
+                    <a href="/Use/delete/<%= User[i].user_id %>">Delete</a>
+                </td>
+            </tr>
+        <% } %>
+    </table>
+    <a href="/Use/create">Create New User</a>
+</body>
+</html>

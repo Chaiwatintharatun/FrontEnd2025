@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update username</title>
+    <link rel="stylesheet" href="../../css/style.css"/>
+
+</head>
+<body>
+    <h1>update order_detail</h1>
+    <form method="post" action="/order_detai/update/<%= order_detail.Order_dID %>">
+        <label for="user_ID" >Order_ID:</label>
+        <input type="text" id="Order_ID" name="Order_ID" value="<%= order_detail.Order_ID %>">
+        <br>
+        <label for="user_ID">user_ID:</label>
+        <input type="text" id="user_ID" name="user_ID" value="<%= order_detail.user_ID %>">
+        <br>
+        <br>
+        <label for="product_ID">product_ID:</label>
+        <input type="text" id="product_ID" name="product_ID" value="<%= order_detail.product_ID %>">
+        <br>
+
+
+        <input type="submit" value="Update">
+    </form>
+    <a href="/order_detail">Back to list</a>
+</body>
+</html>

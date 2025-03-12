@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Order</title>
+    <link rel="stylesheet" href="../../css/style.css"/>
+
+</head>
+<body>
+    <h1>update Order</h1>
+    <form method="post" action="/orde/update/<%= orde.orde %>">
+        
+        <label for="Order_dID">Order_dID:</label>
+        <input type="text" id="Order_dID" name="Order_dID" value="<%= order.Order_dID %>">
+        <br>
+
+        <input type="submit" value="Update">
+    </form>
+    <a href="/order/<%= order.id%>">View</a>
+    <a href="/order/delete/<%= order.id%>">Delete</a>
+    <a href="/order">Back to list</a>
+</body>
+</html>

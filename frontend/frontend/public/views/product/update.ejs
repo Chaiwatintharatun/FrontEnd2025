@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Product</title>
+    <link rel="stylesheet" href="../../css/style.css"/>
+</head>
+<body>
+    <h1>Update Product</h1>
+    <form method="post" action="/product/update/<%= product.product_ID %>">
+        <label for="product_name">Product Name:</label>
+        <input type="text" id="product_name" name="product_name" value="<%= product.product_name %>">
+        <br>
+        <label for="quantity_available">Quantity Available:</label>
+        <input type="text" id="quantity_available" name="quantity_available" value="<%= product.quantity_available %>">
+        <br>
+        <br>
+        <label for="price"> price:</label>
+        <input type="text" id="price" name="price" value="<%= product.price %>">
+        <br>
+        
+        <input type="submit" value="Update">
+    </form>
+
+    <a href="/product">Back to List</a>
+</body>
+</html>
