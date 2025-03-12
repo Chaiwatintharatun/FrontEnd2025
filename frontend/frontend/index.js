@@ -7,7 +7,7 @@ const https = require('https');
 
 // const agent = new https.Agent({ rejectUnauthorized: false });
 const httpsAgent = new https.Agent({ rejectUnauthorized: false });
-//app.get('/produc/create', (req, res) => {...});
+//app.get('/product/create', (req, res) => {...});
 
 // const agent = new https.Agent({
 //     rejectUnauthorized: false // Ignore SSL errors
