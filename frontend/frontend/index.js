@@ -5,7 +5,10 @@ const app = express();
 const bodyParser = require('body-parser');
 const https = require('https');
 
-const agent = new https.Agent({ rejectUnauthorized: false });
+// const agent = new https.Agent({ rejectUnauthorized: false });
+const httpsAgent = new https.Agent({ rejectUnauthorized: false });
+app.get('/produc/create', (req, res) => {...});
+
 // const agent = new https.Agent({
 //     rejectUnauthorized: false // Ignore SSL errors
 // })
@@ -28,7 +31,7 @@ app.get('/', async (req, res) => {
 // ดูทั้งหมด 11111111111
 app.get('/product', async (req, res) => {
     try {
-        const response = await axios.get(base_url + '/product', { httpsAgent: agent });
+        const response = await axios.get(base_url + '/product', { httpsAgent });
         if (response.status !== 200) {
             return res.status(500).send('Error');
         }
@@ -51,11 +54,11 @@ app.get('/product/:id', async (req, res) => {
 });
 
 // แสดงหน้าสร้างสินค้า
-app.get('/produc/create', (req, res) => {
+app.get('/product/create', (req, res) => {
     res.render("product/create");
 });
 
-app.post('/produc/create', async (req, res) => {
+app.post('/product/create', async (req, res) => {
     try {
         const data = { product_name: req.body.product_name, quantity_available: req.body.quantity_available, price: req.body.price };
         await axios.post(base_url + '/product', data);
@@ -124,11 +127,11 @@ app.get('/User/:id', async (req, res) => {
 });
 
 // show create desktop
-app.get('/Use/create', (req, res) => {
+app.get('/User/create', (req, res) => {
     res.render("User/create");
 });
 
-app.post('/Use/create', async (req, res) => {
+app.post('/User/create', async (req, res) => {
     try {
         const data = { username: req.body.username, email: req.body.email, phone: req.body.phone };
         await axios.post(base_url + '/User', data);
@@ -163,7 +166,7 @@ app.post('/User/update/:id', async (req, res) => {
 });
 
 // delete
-app.get('/Use/delete/:id', async (req, res) => {
+app.get('/User/delete/:id', async (req, res) => {
     try {
         await axios.delete(base_url + '/User/' + req.params.id);
         res.redirect('/User');
@@ -203,11 +206,11 @@ app.get('/order_detail/:id', async (req, res) => {
 });
 
 // แสดงหน้าสร้างสินค้า
-app.get('/order_detai/create', (req, res) => {
+app.get('/order_detail/create', (req, res) => {
     res.render("order_detail/create");
 });
 
-app.post('/order_detai/create', async (req, res) => {
+app.post('/order_detail/create', async (req, res) => {
     try {
         const data = { Order_ID: req.body.Order_ID, user_ID: req.body.user_ID, product_ID: req.body.product_ID };
         await axios.post(base_url + '/order_detail', data);
@@ -219,7 +222,7 @@ app.post('/order_detai/create', async (req, res) => {
 });
 
 // อัพเดท
-app.get('/order_detai/update/:id', async (req, res) => {
+app.get('/order_detail/update/:id', async (req, res) => {
     try {
         const response = await axios.get(base_url + '/order_detail/' + req.params.id);
         res.render('order_detail/update', { order_detail: response.data });
@@ -229,7 +232,7 @@ app.get('/order_detai/update/:id', async (req, res) => {
     }
 });
 
-app.post('/order_detai/update/:id', async (req, res) => {
+app.post('/order_detail/update/:id', async (req, res) => {
     try {
         const data = { Order_ID: req.body.Order_ID, user_ID: req.body.user_ID, product_ID: req.body.product_ID };
         await axios.put(base_url + '/order_detail/' + req.params.id, data);
@@ -241,7 +244,7 @@ app.post('/order_detai/update/:id', async (req, res) => {
 });
 
 // ลบ
-app.get('/order_detai/delete/:id', async (req, res) => {
+app.get('/order_detail/delete/:id', async (req, res) => {
     try {
         await axios.delete(base_url + '/order_detail/' + req.params.id);
         res.redirect('/order_detail');
@@ -279,11 +282,11 @@ app.get('/order/:id', async (req, res) => {
 });
 
 // แสดงหน้าสร้างสินค้า
-app.get('/orde/create', (req, res) => {
+app.get('/order/create', (req, res) => {
     res.render("order/create");
 });
 
-app.post('/orde/create', async (req, res) => {
+app.post('/order/create', async (req, res) => {
     try {
         const data = { Order_dID: req.body.Order_dID };
         await axios.post(base_url + '/order', data);
@@ -317,7 +320,7 @@ app.post('/order/update/:id', async (req, res) => {
 });
 
 // ลบ
-app.get('/orde/delete/:id', async (req, res) => {
+app.get('/order/delete/:id', async (req, res) => {
     try {
         await axios.delete(base_url + '/order/' + req.params.id);
         res.redirect('/order');
@@ -328,4 +331,4 @@ app.get('/orde/delete/:id', async (req, res) => {
 });
 
 
-app.listen(3001, () => console.log(`Listening on port 3001`));
+app.listen(5500, () => console.log(`Listening on port 5500`));
