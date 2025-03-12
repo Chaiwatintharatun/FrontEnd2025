@@ -15,7 +15,7 @@ const httpsAgent = new https.Agent({ rejectUnauthorized: false });
 
 // const base_url = "http://localhost:3000";
 // const base_url = "http://10.104.7.149";
-const base_url = "https://env-0528958.proen.app.ruk-com.cloud/";
+const base_url = "https://env-0528958.proen.app.ruk-com.cloud";
 
 app.set('views', path.join(__dirname, "/public/views"));
 app.set('view engine', 'ejs');
